@@ -9,12 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.usa.misiontic</groupId>
-    <artifactId>MasterClass3</artifactId>
+    <artifactId>Ciclo3</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>MasterClass3</name>
-    <description>MasterClass3</description>
+    <name>Ciclo3</name>
+    <description>Ciclo3, Christian Rodriguez</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>18</java.version>
     </properties>
     <dependencies>
         <dependency>
