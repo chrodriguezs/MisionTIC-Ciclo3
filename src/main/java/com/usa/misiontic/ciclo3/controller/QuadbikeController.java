@@ -36,4 +36,13 @@ public class QuadbikeController {
     public boolean delete(@PathVariable("id") int id){
         return quadbikeService.delete(id);
     }
+    @DeleteMapping("/all")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(){
+        List<Quadbike> quadbikes = quadbikeService.getAll();
+        for (Quadbike quadbike : quadbikes) {
+            quadbikeService.delete(quadbike.getId());
+        }
+        return true;
+    }
 }

@@ -36,4 +36,14 @@ public class ClientController {
     public boolean delete(@PathVariable("id") int id){
         return clientService.delete(id);
     }
+    @DeleteMapping("/all")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(){
+        List<Client> clients = clientService.getAll();
+        for (Client client : clients) {
+            clientService.delete(client.getIdClient());
+        }
+        return true;
+    }
 }
+

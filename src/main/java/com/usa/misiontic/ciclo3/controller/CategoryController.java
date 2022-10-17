@@ -36,4 +36,13 @@ public class CategoryController {
     public boolean delete(@PathVariable("id") int id){
         return categoryService.delete(id);
     }
+    @DeleteMapping("/all")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(){
+        List<Category> categories = categoryService.getAll();
+        for (Category category : categories) {
+            categoryService.delete(category.getId());
+        }
+        return true;
+    }
 }

@@ -36,4 +36,13 @@ public class MessageController {
     public boolean delete(@PathVariable("id") int id){
         return messageService.delete(id);
     }
+    @DeleteMapping("/all")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(){
+        List<Message> messages = messageService.getAll();
+        for (Message message : messages) {
+            messageService.delete(message.getIdMessage());
+        }
+        return true;
+    }
 }

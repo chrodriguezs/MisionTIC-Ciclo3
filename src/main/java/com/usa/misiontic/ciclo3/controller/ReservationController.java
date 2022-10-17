@@ -36,4 +36,13 @@ public class ReservationController {
     public boolean delete(@PathVariable("id") int id){
         return reservationService.delete(id);
     }
+    @DeleteMapping("/all")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(){
+        List<Reservation> reservations = reservationService.getAll();
+        for (Reservation reservation : reservations) {
+            reservationService.delete(reservation.getIdReservation());
+        }
+        return true;
+    }
 }
