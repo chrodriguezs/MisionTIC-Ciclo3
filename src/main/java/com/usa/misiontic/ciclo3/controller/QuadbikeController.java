@@ -27,12 +27,12 @@ public class QuadbikeController {
         return quadbikeService.save(p);
     }
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public Quadbike update(@RequestBody  Quadbike p){
         return quadbikeService.update(p);
     }
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
         return quadbikeService.delete(id);
     }
