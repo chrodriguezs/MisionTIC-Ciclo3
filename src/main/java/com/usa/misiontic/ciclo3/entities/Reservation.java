@@ -42,7 +42,7 @@ public class Reservation implements Serializable {
         return this.quadbike;
     }
 
-    public void setQuadbikes(Quadbike quadbike) {
+    public void setQuadbike(Quadbike quadbike) {
         this.quadbike = quadbike;
     }
 

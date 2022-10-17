@@ -15,15 +15,25 @@ import java.util.List;
 public class MessageController {
 
     @Autowired
-    private MessageService ressageService;
+    private MessageService messageService;
 
     @GetMapping("/all")
     public List<Message> getAll(){
-        return ressageService.getAll();
+        return messageService.getAll();
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Message save(@RequestBody  Message p){
-        return ressageService.save(p);
+        return messageService.save(p);
+    }
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Message update(@RequestBody  Message p){
+        return messageService.update(p);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public boolean delete(@PathVariable("id") int id){
+        return messageService.delete(id);
     }
 }
