@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 import com.usa.misiontic.ciclo3.entities.Reservation;
 import com.usa.misiontic.ciclo3.repository.ReservationRepository;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,6 +80,25 @@ public class ReservationService {
         }
         return flag;
 
+    }
+    public List<Reservation> getReservationsPeriod(String dateInit, String dateLast) {
+        SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
+        Date init = new Date();
+        Date last = new Date();
+        try {
+            init = parser.parse(dateInit);
+            last = parser.parse(dateLast);
+        }catch(ParseException e){
+            e.printStackTrace();
+        }
+        if(init.before(last)){
+            return reservationRepository.getReservationPeriod(init,last);
+        }
+
+        return new ArrayList<>();
+    }
+    public List<Reservation> getReservactionReportStatus() {
+        return reservationRepository.getReservactionReportStatus();
     }
 
 

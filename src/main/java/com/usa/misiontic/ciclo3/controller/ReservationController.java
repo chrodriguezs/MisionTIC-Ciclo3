@@ -21,6 +21,19 @@ public class ReservationController {
     public List<Reservation> getAll(){
         return reservationService.getAll();
     }
+
+    @GetMapping("/report-status")
+    public List<Reservation> getReservationReportStatus(){
+        return reservationService.getReservactionReportStatus();
+    }
+
+    @GetMapping("/report-dates/{dateInit}/{dateLast}")
+    public List<Reservation> getReservationsReportDates(
+        @PathVariable("dateInit") String dateInit,
+        @PathVariable ("dateLast") String dateLast){
+        return reservationService.getReservationsPeriod(dateInit,dateLast);
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save(@RequestBody  Reservation p){

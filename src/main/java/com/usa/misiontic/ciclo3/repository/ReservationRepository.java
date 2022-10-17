@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.usa.misiontic.ciclo3.entities.Reservation;
 import com.usa.misiontic.ciclo3.repository.crudRepository.ReservationCrudRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +27,12 @@ public class ReservationRepository {
     }
     public void delete(Reservation p){
         reservationCrudRepository.delete(p);
+    }
+    public List<Reservation> getReservationPeriod(Date init, Date last) {
+        return reservationCrudRepository.findAllByStartDateAfterAndStartDateBefore(init, last);
+    }
+    public List<Reservation> getReservactionReportStatus() {
+        return reservationCrudRepository.getReservactionReportStatus();
     }
 
 }
