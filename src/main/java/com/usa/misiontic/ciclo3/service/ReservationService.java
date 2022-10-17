@@ -40,17 +40,23 @@ public class ReservationService {
                 if(p.getIdReservation()!=null){
                     q.get().setIdReservation(p.getIdReservation());
                 }
-//                if(p.getPalco()!=null){
-//                    q.get().setPalco(p.getPalco());
-//                }
-//                if(p.getClient()!=null){
-//                    q.get().setClient(p.getClient());
-//                }
                 if(p.getstartDate()!=null){
                     q.get().setstartDate(p.getstartDate());
                 }
                 if(p.getDevolutionDate()!=null){
                     q.get().setDevolutionDate(p.getDevolutionDate());
+                }
+                if(p.getClient()!=null){
+                    q.get().setClient(p.getClient());
+                }
+                if(p.getQuadbike()!=null){
+                    q.get().setQuadbike(p.getQuadbike());
+                }
+                if(p.getStatus()!=null){
+                    q.get().setStatus(p.getStatus());
+                }
+                if(p.getScore()!=null){
+                    q.get().setScore(p.getScore());
                 }
                 reservationRepository.save(q.get());
                 return q.get();
